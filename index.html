@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="shortcut icon" href="https://blog.dreace.top/favicon-32x32.png" type="image/png">
+    <title>Dreace</title>
+    <link href="index.css" rel="stylesheet" type="text/css" />
+    <link
+      rel="stylesheet"
+      href="//at.alicdn.com/t/font_1987019_szmyol53gqf.css"
+    />
+  </head>
+
+  <body>
+    <!-- Main Container -->
+    <div class="container">
+      <div class="left">
+        <img
+          class="avatar"
+          src="//cdn.jsdelivr.net/gh/dreace/dreace.github.io@master/images/avatar.png"
+          alt="头像"
+        />
+        <div class="name">Dreace</div>
+        <div>(伪)Full Stack Developer</div>
+      </div>
+      <div class="right">
+        <div>
+          zh-Hans-CN & en-US / NUC / Windows with WSL / Python / Golang /
+          TypeScript / JetBrains / Tab: 2 or 4 spaces / backend & Web
+        </div>
+        <div class="contact">
+          <a
+            class="tooltip"
+            c-title="GitHub"
+            href="https://github.com/Dreace"
+            target="_blank"
+            rel="external noopenner noreferrer nofollow"
+            ><i class="iconfont icon-github"></i
+          ></a>
+          <a
+            class="tooltip"
+            c-title="Blog"
+            href="https://blog.dreace.top"
+            target="_blank"
+            rel="external noopenner noreferrer nofollow"
+            ><i class="iconfont icon-blog"></i
+          ></a>
+          <a
+            class="tooltip"
+            c-title="Email"
+            href="mailto:dreace@foxmail.com"
+            target="_blank"
+            rel="external noopenner noreferrer nofollow"
+            ><i class="iconfont icon-email"></i
+          ></a>
+          <a
+            class="tooltip"
+            c-title="Resume"
+            id="resume"
+            href="https://github.com/Dreace/resume/releases/download/v0.1.2/resume-zh_CN.pdf"
+            target="_blank"
+            rel="external noopenner noreferrer nofollow"
+            ><i class="iconfont icon-resume"></i
+          ></a>
+          <a
+            class="tooltip"
+            c-title="知乎"
+            href="https://www.zhihu.com/people/dreace"
+            target="_blank"
+            rel="external noopenner noreferrer nofollow"
+            ><i class="iconfont icon-zhihu"></i
+          ></a>
+        </div>
+      </div>
+    </div>
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        fetch(
+          "https://api.github.com/repos/Dreace/resume/releases/latest"
+        ).then(async (res) => {
+          if (res.ok) {
+            const data = await res.json();
+            document.querySelector("#resume").href =
+              data.assets[0].browser_download_url;
+          }
+        });
+      });
+    </script>
+  </body>
+</html>
